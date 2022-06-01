@@ -34,6 +34,21 @@ class Menu extends Phaser.Scene{
         // Define keys
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+
+        this.p1Score = 0;
+        let scoreConfig = {
+          fontFamily: 'Courier',
+          fontSize: '28px',
+          backgroundColor: '#CB997E',
+          color: '#FFE8D6',
+          align: 'right',
+          padding: {
+              top: 5,
+              bottom: 5,
+          },
+          fixedWidth: 100
+      }
+      this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding*2, this.p1Score, scoreConfig);
     }
 
     update() {
