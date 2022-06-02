@@ -15,3 +15,19 @@ let borderPadding = borderUISize/3;
 
 //Set Keyboard Vars
 let keyZ, keyX, keyLEFT, keyRIGHT;
+
+/*Point Break Down
+Novice Tier
+Implemented Parallax Scrolling 
+(created another background layer png
+    called foreground and had it scroll a bit slower than the main starfield)
+
+
+Intermediate Tier
+
+Created new artwork for all in-game assets
+(Created art assets for each rocket, spaceship, explosion)
+
+New spaceship type with new artwork (called specialship)
+(Created a new class for a specialship that is smaller, faster, and gives more points)
+*/
