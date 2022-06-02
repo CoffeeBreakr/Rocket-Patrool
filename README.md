@@ -7,4 +7,4 @@ Implement Parallax Scrolling
 
 (Intermediate Tier)
 Create new art work for all in game assets 
-Create a new spaceship type (w/ artwork), that is smaller moves faster and is worth more points (20)
+Create a new spaceship type (w/ artwork), that is smaller moves faster and is worth more points
