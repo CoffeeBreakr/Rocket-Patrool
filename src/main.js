@@ -1,4 +1,34 @@
-//console.log("hello World");
+/*
+ Jesse Park
+ Rocket Patrool Modded
+ 4/10/22 <-- Repo Created Around that time
+ 5-8~ hours
+ creating assets, creating new classes, UI changes, debugging and troubleshooting (404 err), 
+*/
+
+
+
+/*Point Break Down
+Novice Tier
+Implemented Parallax Scrolling 
+(created another background layer png
+    called foreground and had it scroll a bit slower than the main starfield)
+
+
+Intermediate Tier
+
+Created new artwork for all in-game assets
+(Created art assets for each rocket, spaceship, explosion)
+
+New spaceship type with new artwork (called specialship)
+(Created a new class for a specialship that is smaller, faster, and gives more points)
+*/
+
+
+
+
+
+/*console.log("hello World");
 
 let config = {
     type: Phaser.CANVAS,
@@ -15,19 +45,4 @@ let borderPadding = borderUISize/3;
 
 //Set Keyboard Vars
 let keyZ, keyX, keyLEFT, keyRIGHT;
-
-/*Point Break Down
-Novice Tier
-Implemented Parallax Scrolling 
-(created another background layer png
-    called foreground and had it scroll a bit slower than the main starfield)
-
-
-Intermediate Tier
-
-Created new artwork for all in-game assets
-(Created art assets for each rocket, spaceship, explosion)
-
-New spaceship type with new artwork (called specialship)
-(Created a new class for a specialship that is smaller, faster, and gives more points)
 */
