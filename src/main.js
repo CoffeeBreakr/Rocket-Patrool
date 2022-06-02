@@ -1,9 +1,9 @@
 /*
  Jesse Park
  Rocket Patrool Modded
- 4/10/22 <-- Repo Created Around that time
+
  5-8~ hours
- creating assets, creating new classes, UI changes, debugging and troubleshooting (404 err), 
+ creating assets, creating new classes, UI changes, debugging and troubleshooting (404 err), etc 
 */
 
 
