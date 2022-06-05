@@ -20,7 +20,7 @@ let borderUISize = game.config.height/15;
 let borderPadding = borderUISize/3;
 
 //Set Keyboard Vars
-let keyZ, keyX, keyLEFT, keyRIGHT;
+let keyZ, keyX, keyLEFT, keyRIGHT, keyA, keyS, keyD, keyUP;
 
 /*Point Break Down
 Novice Tier
