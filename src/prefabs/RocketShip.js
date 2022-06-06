@@ -5,7 +5,7 @@ class RocketShip extends Phaser.GameObjects.Sprite {
       // Add object to scene
       scene.add.existing(this);          // Add to existing
       this.hasFiring = false;            // Track rocket's firing status
-      this.moveSpeed = 2;                // Px per Frame
+      this.moveSpeed = 4;                // Px per Frame
     }
 
     update(){

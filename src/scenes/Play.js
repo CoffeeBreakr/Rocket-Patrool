@@ -34,7 +34,7 @@ class Play extends Phaser.Scene {
         this.p1Rocket = new Rocket(this, game.config.width / 2, game.config.height - borderUISize - borderPadding, 'rocket').setOrigin(0.5, 0);
         this.p2Rocket = new Rocket2(this, game.config.width / 2, game.config.height - borderUISize - borderPadding, 'rocket2').setOrigin(0.5, 0);
         // Add Spaceships
-        this.ship01 = new Specialship(this, game.config.width + borderUISize * 6, borderUISize * 4, 'spaceship3', 0, 30).setOrigin(0, 0);
+        this.sShip01 = new Specialship(this, game.config.width + borderUISize * 6, borderUISize * 4, 'spaceship3', 0, 30).setOrigin(0, 0);
         this.ship02 = new Spaceship(this, game.config.width + borderUISize * 3, borderUISize * 5 + borderPadding * 2, 'spaceship2', 0, 20).setOrigin(0, 0);
         this.ship03 = new Spaceship(this, game.config.width, borderUISize * 6 + borderPadding * 4, 'spaceship', 0, 10).setOrigin(0, 0);
         // Define Keys
@@ -112,7 +112,7 @@ class Play extends Phaser.Scene {
         if (this.gameOver) {
             this.p1Rocket.alpha = 0;
             this.p2Rocket.alpha = 0;
-            this.ship01.alpha = 0;
+            this.sShip01.alpha = 0;
             this.ship02.alpha = 0;
             this.ship03.alpha = 0;
 
@@ -135,9 +135,9 @@ class Play extends Phaser.Scene {
         this.forefield.tilePositionX += 0.5;
 
         // Check collisions
-        if (this.checkCollision(this.p1Rocket, this.ship01)) {     // Player 1 Collisions Check
+        if (this.checkCollision(this.p1Rocket, this.sShip01)) {     // Player 1 Collisions Check
             this.p1Rocket.reset();
-            this.shipExplode3(this.ship01, 1);
+            this.sShipExplode3(this.sShip01, 1);
         }
         if (this.checkCollision(this.p1Rocket, this.ship02)) {
             this.p1Rocket.reset();
@@ -147,9 +147,9 @@ class Play extends Phaser.Scene {
             this.p1Rocket.reset();
             this.shipExplode(this.ship03, 1);
         }
-        if (this.checkCollision(this.p2Rocket, this.ship01)) {     // Player 2 Collisions Check
+        if (this.checkCollision(this.p2Rocket, this.sShip01)) {     // Player 2 Collisions Check
             this.p2Rocket.reset();
-            this.shipExplode3(this.ship01, 2);
+            this.sShipExplode3(this.sShip01, 2);
         }
         if (this.checkCollision(this.p2Rocket, this.ship02)) {
             this.p2Rocket.reset();
@@ -166,7 +166,7 @@ class Play extends Phaser.Scene {
 
             this.p1Rocket.update();         // Update rocket sprite
             this.p2Rocket.update();
-            this.ship01.update();           // Spaceship Update
+            this.sShip01.update();           // Spaceship Update
             this.ship02.update();
             this.ship03.update();
 
@@ -197,11 +197,13 @@ class Play extends Phaser.Scene {
     }
 
     shipExplode(ship, player) { //Ship Score 30
+
         //Check Status
         console.log("HAS BEEN HIT");
 
         // Temporarily hide ship
         ship.alpha = 0;
+
         // Create explosion sprite at ship's position
         let boom = this.add.sprite(ship.x, ship.y, 'explosion').setOrigin(0, 0);
         boom.anims.play('explode');             // Play explode animation
@@ -210,6 +212,8 @@ class Play extends Phaser.Scene {
             ship.alpha = 1;                       // Make ship visible again
             boom.destroy();                       // Remove explosion sprite
         });
+
+        ship.points = 10;
         // Score add and repaint
         if(player == 1){
             this.p1Score += ship.points;
@@ -237,9 +241,8 @@ class Play extends Phaser.Scene {
             ship.alpha = 1;                       // Make ship visible again
             boom.destroy();                       // Remove explosion sprite
         });
-        // Score add and repaint
-        this.p1Score += (40);
-        this.p2Score += ship.points;
+
+        ship.points = 30;
         // Score add and repaint
         if(player == 1){
             this.p1Score += ship.points;
@@ -258,9 +261,10 @@ class Play extends Phaser.Scene {
         this.sound.play('sfx_explosion');
     }
 
-    shipExplode3(ship, player) { //Ship3 Score changed to 100
+    sShipExplode3(ship, player) { //Ship3 Score changed to 100
         // Temporarily hide ship
         ship.alpha = 0;
+
         // Create explosion sprite at ship's position
         let boom = this.add.sprite(ship.x, ship.y, 'explosion').setOrigin(0, 0);
         boom.anims.play('explode');             // Play explode animation
@@ -269,9 +273,8 @@ class Play extends Phaser.Scene {
             ship.alpha = 1;                       // Make ship visible again
             boom.destroy();                       // Remove explosion sprite
         });
-        // Score add and repaint
-        this.p1Score += (100);
-        this.p2Score += ship.points;
+
+        ship.points = 100;
         // Score add and repaint
         if(player == 1){
             this.p1Score += ship.points;
@@ -280,12 +283,11 @@ class Play extends Phaser.Scene {
         {
             this.p2Score += ship.points;
         }
+
         this.scoreLeft.text = this.p1Score + this.p2Score;
         this.scorep1.text = 'Player 1: ' +  this.p1Score;
         this.scorep2.text = 'Player 2: ' +  this.p2Score;
         console.log(this.p1Score + (",") + this.p2Score);
-
-
         this.sound.play('sfx_explosion');
     }
 }
