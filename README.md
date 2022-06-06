@@ -9,4 +9,4 @@ Create new art work for all in game assets (20)
 Create a new spaceship type (known as specialship) (w/ artwork), that is smaller moves faster and is worth more points (20)
 
 2 Players with different scoring systems
-60 second timer
+60 second timer (help from friend)
