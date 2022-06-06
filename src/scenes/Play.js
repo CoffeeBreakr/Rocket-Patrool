@@ -14,8 +14,6 @@ class Play extends Phaser.Scene {
         this.load.image('rocket2', './assets/rocketP2.png');
         // Load spritesheet
         this.load.spritesheet('explosion', './assets/enemyExplosion.png', { frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 9 });
-
-        this.timeRemaining = game.settings.gameTimer;
     }
 
     create() {
@@ -90,18 +88,6 @@ class Play extends Phaser.Scene {
         scoreConfig.fixedWidth = 100;
         scoreConfig.align = 'left';
         this.timeText = this.add.text(game.config.width - 144, borderUISize + borderPadding * 2, this.timeLeft, scoreConfig);
-
-
-        //this.timeLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding * 0.5, this.timeRemaining, timeConfig)
-        //scoreConfig.fixedWidth = 0;
-        /* this.clock = this.time.delayedCall(game.settings.gameTimer, () => {
-             this.add.text(game.config.width / 2, game.config.height / 2, 'GAME OVER', scoreConfig).setOrigin(0.5);
-             this.add.text(game.config.width / 2, game.config.height / 2 + 64, 'Press (X) to Restart or ← for Menu', scoreConfig).setOrigin(0.5);
-             this.gameOver = true;
-         }, null, this); */
-
-
-
 
     }
 

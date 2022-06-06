@@ -1,40 +1,40 @@
 class Rocket extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, texture, frame) {
-      super(scene, x, y, texture, frame);
-  
-      // Add object to scene
-      scene.add.existing(this);                         // Add to existing
-      this.isFiring = false;                            // Track rocket's firing status
-      this.moveSpeed = 2;                               // Px per Frame
-      this.sfxRocket = scene.sound.add('sfx_rocket');   // Add rocket sfx
-      this.hasFired = false;                            // Checks if Rocket has fire (prevents sfx spam)
+        super(scene, x, y, texture, frame);
+
+        // Add object to scene
+        scene.add.existing(this);                         // Add to existing
+        this.isFiring = false;                            // Track rocket's firing status
+        this.moveSpeed = 4;                               // Px per Frame
+        this.sfxRocket = scene.sound.add('sfx_rocket');   // Add rocket sfx
+        this.hasFired = false;                            // Checks if Rocket has fire (prevents sfx spam)
     }
 
-    update(){
+    update() {
         // Left Right Movement
-        if(!this.isFiring) {
-            if(keyLEFT.isDown && this.x >= borderUISize + this.width) {
+        if (!this.isFiring) {
+            if (keyLEFT.isDown && this.x >= borderUISize + this.width) {
                 this.x -= this.moveSpeed;
-            } 
-            else if(keyRIGHT.isDown && this.x <= game.config.width - borderUISize - this.width) {
+            }
+            else if (keyRIGHT.isDown && this.x <= game.config.width - borderUISize - this.width) {
                 this.x += this.moveSpeed;
             }
         }
         // Fire Button
-        if(Phaser.Input.Keyboard.JustDown(keyUP)) {
+        if (Phaser.Input.Keyboard.JustDown(keyUP)) {
             this.isFiring = true;
-            if(this.hasFired == false){
+            if (this.hasFired == false) {
                 this.sfxRocket.play();  // Play sfx
                 this.hasFired = true;
             }
 
         }
         // If fired, Move up
-        if(this.isFiring && this.y >= borderUISize * 3 + borderPadding) {
+        if (this.isFiring && this.y >= borderUISize * 3 + borderPadding) {
             this.y -= this.moveSpeed;
         }
         // Reset on miss
-        if(this.y <= borderUISize * 3 + borderPadding) {
+        if (this.y <= borderUISize * 3 + borderPadding) {
             this.isFiring = false;
             this.hasFired = false;
             this.y = game.config.height - borderUISize - borderPadding;
@@ -47,4 +47,4 @@ class Rocket extends Phaser.GameObjects.Sprite {
         this.hasFired = false;
         this.y = game.config.height - borderUISize - borderPadding;
     }
-  }
+}
